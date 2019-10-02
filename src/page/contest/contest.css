@@ -1,0 +1,41 @@
+.headerRow {
+  display: flex;
+  justify-content: space-between;
+  height: 50px;
+}
+
+.headerLeft {
+  display: flex;
+  flex: 1 0 0;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.align-center {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.headerCenter {
+  display: flex;
+  flex: 1 0 0;
+  justify-content: center;
+  align-items: center;
+}
+
+.headerTitle {
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.headerRight {
+  display: flex;
+  flex: 1 0 0;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+/* d;lv */

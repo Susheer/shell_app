@@ -1,0 +1,21 @@
+.sortingContainer {
+  padding-top: 16px;
+  /*   background-color: red; */
+}
+
+.sortingHeader {
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sortLabel {
+  color: #969696;
+}
+
+.sortingBody {
+  margin-top: 12px;
+  display: flex;
+  /* border: 1px solid red; */
+}

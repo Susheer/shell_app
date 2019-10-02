@@ -1,0 +1,38 @@
+.iconLabelSmall_a2024 {
+  font-size: 12px;
+}
+
+.raisedWhiteButtonNew_08689 {
+  background: none;
+  border: 0;
+  cursor: pointer;
+  margin: 0;
+  text-decoration: none;
+  text-align: center;
+  font-family: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: inherit;
+  font-weight: 500;
+  font-size: 12px;
+  height: 32px;
+  padding: 0 8px;
+  width: 156px;
+  border-radius: 4px;
+  background-color: #fff;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 4px 6px 0 rgba(0, 0, 0, 0.05);
+}
+
+.appContainer_6475d {
+  max-width: 550px;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+.contestHome_789e2 {
+  padding-top: 100px;
+  padding-bottom: 50px;
+  background-color: #efeff4;
+  min-height: 100%;
+}

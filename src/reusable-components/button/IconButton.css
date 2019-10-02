@@ -1,0 +1,50 @@
+.Icon-Button-container.default-theam .raisedWhiteButtonNew {
+  background: none;
+  border: 0;
+  cursor: pointer;
+  margin: 0;
+  text-decoration: none;
+  text-align: center;
+  font-family: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: inherit;
+  font-weight: 500;
+  font-size: 12px;
+  height: 32px;
+  padding: 0 8px;
+  /*  width: 156px; */
+  border-radius: 4px;
+  background-color: #fff;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 4px 6px 0 rgba(0, 0, 0, 0.05);
+}
+
+.Icon-Button-container.default-theam .iconLabel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.Icon-Button-container.default-theam .iconLabelSmall {
+  font-size: 12px;
+}
+
+.Icon-Button-container.default-theam .iconContent {
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+.Icon-Button-container.default-theam .materialIcon {
+  font-family: Material Icons;
+  font-weight: normal;
+  font-style: normal;
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+}

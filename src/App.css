@@ -1,0 +1,266 @@
+body {
+  background-color: #fafafa;
+  color: #323232;
+  font-family: "Montserrat", sans-serif, -apple-system, BlinkMacSystemFont,
+    “Segoe UI”, Roboto, “Helvetica Neue”, Ubuntu, Arial, sans-serif;
+
+  font-weight: 500;
+}
+
+.app-container {
+  max-width: 550px;
+  height: 100%;
+}
+
+.headerContainer {
+  background-color: #c51d23;
+  color: #fff;
+  z-index: 4;
+}
+.headerFixed {
+  position: fixed;
+  top: 0;
+  max-width: 550px;
+  width: 100%;
+}
+
+.Home-header {
+  background-color: #c51d23;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.item-active {
+  cursor: pointer;
+}
+.materialIcon {
+  font-family: Material Icons;
+  font-weight: normal;
+  font-style: normal;
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+}
+
+.logo_32840 {
+  height: 48px;
+  padding: 8px;
+}
+
+.liveDot {
+  height: 6px;
+  width: 6px;
+  border-radius: 50%;
+  background-color: #e10000;
+  margin: 0 4px;
+}
+.align-center {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.left_a1d14 {
+  justify-content: flex-start;
+}
+.headerElement_af700 {
+  display: flex;
+  flex: 1;
+}
+.right_c98d9 {
+  justify-content: flex-end;
+}
+
+.whiteBorderedButton_6b901 {
+  background: none;
+  border: 1px solid #fff;
+  cursor: pointer;
+  margin: 0 8px;
+  text-decoration: none;
+  text-align: center;
+  font-family: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-weight: 500;
+  font-size: 12px;
+  height: 32px;
+  padding: 0 8px;
+  outline: none;
+  text-transform: uppercase;
+  border-radius: 20px;
+}
+
+/* card start header */
+
+.card_iteam {
+  background-color: #fff;
+  margin: 8px;
+  /*  margin-bottom: 8px; */
+  min-height: 128px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  border-radius: 2px;
+  overflow: hidden;
+  cursor: pointer;
+}
+.darkTheme {
+  margin: 12px 12px 8px 12px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 4px 6px 0 rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+}
+
+.matchCard_868db {
+  text-decoration: none;
+  color: inherit;
+}
+
+.matchCardHeaderDesktop {
+  height: 40px;
+}
+
+.matchCardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 12px;
+}
+
+.matchCard_868db {
+  text-decoration: none;
+  color: inherit;
+}
+
+.matchCard_868db {
+  text-decoration: none;
+  color: inherit;
+}
+
+.matchCardMain {
+  display: flex;
+  justify-content: space-between;
+  min-height: 48px;
+  align-items: center;
+  margin: 8px 0;
+}
+
+.flex {
+  display: flex;
+}
+
+.matchCard_868db {
+  text-decoration: none;
+  color: inherit;
+}
+
+.matchCardTimerDesktop {
+  font-size: 14px;
+}
+
+.flagWrapperDesktop {
+  width: 72px;
+  height: 52px;
+}
+
+.flagWrapperLeft_b977f {
+  margin: 0 12px 0 0;
+  justify-content: flex-end;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.matchCard_868db {
+  text-decoration: none;
+  color: inherit;
+}
+.lazyLoaderImgLoaded {
+  opacity: 0;
+}
+.lazyLoaderImgFit {
+  object-fit: cover;
+}
+.lazyLoaderImg {
+  height: 100%;
+  opacity: 1;
+  transition: opacity 300ms linear;
+  width: 100%;
+}
+.squadShortNameLeft {
+  left: 20px;
+  justify-content: flex-start;
+  font-size: 16px;
+}
+.squadShortNameRight {
+  right: 20px;
+  justify-content: flex-end;
+  font-size: 16px;
+}
+
+.flagWrapper {
+  display: flex;
+  align-items: center;
+}
+.flagWrapperRight {
+  justify-content: flex-start;
+  margin: 0 0 0 12px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+.matchCardFooterDesktop {
+  height: 40px;
+  font-size: 14px;
+}
+.matchCardFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px;
+  font-size: 12px;
+}
+.squadShortName {
+  position: relative;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  width: 40px;
+  color: #282828;
+  font-weight: 600;
+}
+.lazyLoaderLoaded {
+  position: static;
+}
+.matchCardTimer {
+  font-weight: 500;
+  color: #e10000;
+  text-align: center;
+  padding: 8px;
+}
+
+.matchCardHeaderTitleDesktop {
+  font-size: 12px;
+}
+
+.matchCardHeaderTitle {
+  color: #969696;
+}
+
+.matchCardHeaderStatusText {
+  text-transform: uppercase;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.matchCardHeaderTitleMobile_2e07e {
+  font-size: 10px;
+}
+
+.timer {
+  color: #c61c23;
+}

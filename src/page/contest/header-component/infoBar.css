@@ -1,0 +1,48 @@
+.infobar {
+  background-color: #97282ca8;
+  height: 50px;
+  padding: 8px;
+}
+
+.infobarContent {
+  background-color: #fff;
+  height: 100%;
+  color: #323232;
+  border-radius: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+}
+
+.infobarContentRow {
+  display: flex;
+  width: 100%;
+  font-size: 12px;
+}
+
+.infobarContentLeft {
+  flex: 1 0 0;
+}
+
+.infobarContentCenter {
+  flex: 1 0 0;
+  text-align: center;
+}
+
+.infobar-timer {
+  font-family: monospace;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #c51d23;
+}
+
+.timeRemaining {
+  margin-left: 4px;
+}
+
+.infobarContentRight {
+  flex: 1 0 0;
+  text-align: right;
+}
