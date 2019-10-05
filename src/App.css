@@ -22,13 +22,22 @@ body {
   top: 0;
   max-width: 550px;
   width: 100%;
+  z-index: 1;
 }
 
+.title {
+  margin-top: 5rem;
+  font: caption;
+  color: #a9a4a4;
+  margin-bottom: 16px;
+  line-height: 12px;
+}
 .Home-header {
   background-color: #c51d23;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-direction: column;
 }
 .item-active {
   cursor: pointer;
@@ -103,6 +112,7 @@ body {
   background-color: #fff;
   margin: 8px;
   /*  margin-bottom: 8px; */
+  max-height: 128px;
   min-height: 128px;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
   border-radius: 2px;
@@ -159,12 +169,12 @@ body {
 }
 
 .matchCardTimerDesktop {
-  font-size: 14px;
+  font-size: 10px;
 }
 
 .flagWrapperDesktop {
-  width: 72px;
-  height: 52px;
+  width: 58px;
+  height: 48px;
 }
 
 .flagWrapperLeft_b977f {
@@ -173,32 +183,26 @@ body {
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
 }
+.flagLeftPosition {
+  left: 12px;
+  position: relative;
+}
 
 .matchCard_868db {
   text-decoration: none;
   color: inherit;
 }
-.lazyLoaderImgLoaded {
+.lazyLoaderImg {
+  height: 100%;
   opacity: 0;
+  transition: opacity 300ms linear;
+  width: 100%;
 }
 .lazyLoaderImgFit {
   object-fit: cover;
 }
-.lazyLoaderImg {
-  height: 100%;
+.lazyLoaderImgLoaded {
   opacity: 1;
-  transition: opacity 300ms linear;
-  width: 100%;
-}
-.squadShortNameLeft {
-  left: 20px;
-  justify-content: flex-start;
-  font-size: 16px;
-}
-.squadShortNameRight {
-  right: 20px;
-  justify-content: flex-end;
-  font-size: 16px;
 }
 
 .flagWrapper {
@@ -212,7 +216,7 @@ body {
   border-bottom-left-radius: 20px;
 }
 .matchCardFooterDesktop {
-  height: 40px;
+  height: 32px;
   font-size: 14px;
 }
 .matchCardFooter {
@@ -222,13 +226,24 @@ body {
   padding: 0 12px;
   font-size: 12px;
 }
+
+.squadShortNameLeft {
+  left: 8px;
+  justify-content: flex-start;
+  font-size: 12px;
+}
+.squadShortNameRight {
+  right: 8px;
+  justify-content: flex-end;
+  font-size: 12px;
+}
 .squadShortName {
   position: relative;
   display: flex;
   align-items: center;
   white-space: nowrap;
   width: 40px;
-  color: #282828;
+  color: #615e5e;
   font-weight: 600;
 }
 .lazyLoaderLoaded {
@@ -263,4 +278,43 @@ body {
 
 .timer {
   color: #c61c23;
+}
+
+@media (min-width: 600px) {
+  .card_iteam {
+    background-color: #fff;
+    margin: 8px;
+    /* margin-bottom: 8px; */
+    max-height: 136px;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+    border-radius: 2px;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  .matchCardFooterDesktop {
+    height: 40px;
+  }
+  .matchCardTimerDesktop {
+    font-size: 14px;
+  }
+  .flagWrapperDesktop {
+    width: 72px;
+    height: 52px;
+  }
+  .flagLeftPosition {
+    left: inherit;
+    position: inherit;
+  }
+
+  .squadShortNameLeft {
+    left: 20px;
+    justify-content: flex-start;
+    font-size: 16px;
+  }
+
+  .squadShortNameRight {
+    right: 20px;
+    justify-content: flex-end;
+    font-size: 16px;
+  }
 }
