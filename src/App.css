@@ -318,3 +318,24 @@ body {
     font-size: 16px;
   }
 }
+
+.smallGreenButton {
+  background: none;
+  border: 0;
+  cursor: pointer;
+  margin: 0;
+  text-decoration: none;
+  text-align: center;
+  font-family: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-weight: 500;
+  font-size: 12px;
+  height: 28px;
+  padding: 0 8px;
+  border-radius: 4px;
+  background-color: #00b137;
+  width: 76px;
+}
