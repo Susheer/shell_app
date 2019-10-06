@@ -1,0 +1,42 @@
+.contestSpec_a3ebb {
+  background-color: #f8f8f8;
+  border-top: 1px solid #f4f4f4;
+  padding: 12px;
+  font-size: 12px;
+  height: 32px;
+  display: flex;
+  border-radius: 0 0 4px 4px;
+  align-items: center;
+}
+
+.iconLabelGroup_f55e1 {
+  display: inline-flex;
+  width: 50%;
+}
+.iconLabelWrapper_43690 {
+  display: flex;
+  justify-content: space-between;
+  color: #969696;
+}
+.squareWithTwoRoundCorner_1291a {
+  width: 20px;
+  height: 20px;
+  padding: 2px;
+  font-size: 12px;
+  color: #969696;
+  border: 1px solid #969696;
+  border-radius: 2px 0 2px 0;
+  display: flex;
+  justify-content: center;
+}
+.squareWithTwoRoundCorner_1291a {
+  width: 20px;
+  height: 20px;
+  padding: 2px;
+  font-size: 12px;
+  color: #969696;
+  border: 1px solid #969696;
+  border-radius: 2px 0 2px 0;
+  display: flex;
+  justify-content: center;
+}
