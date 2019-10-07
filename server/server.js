@@ -1,25 +1,28 @@
 /* global global */
-var cluster = require("cluster"),
-  express = require("express"),
+var express = require("express"),
   mongoose = require("mongoose"),
   cookieParser = require("cookie-parser"),
   http = require("http"),
   https = require("https"),
   qs = require("querystring"),
   fs = require("fs"),
-  moment = require("moment"),
   bodyParser = require("body-parser"),
-  multipart = require("connect-multiparty"),
+  moment = require("moment"),
   app = express(),
   config = require("./config");
 
+let path = require("path");
+const busboy = require("connect-busboy");
+const uploadPath = path.join(__dirname, "/flags");
 const server = http.createServer(app);
 global.qs = qs;
 global.app = app;
 global.https = https;
 global.moment = moment;
 global.config = config;
+global.uploadPath = uploadPath;
 global.fs = fs;
+global.path = path;
 global.db = mongoose.connect(
   config.db_host + config.db_name,
   config.option,
@@ -31,11 +34,15 @@ global.db = mongoose.connect(
 
 global.isMaster = false;
 global.mongoose = mongoose;
-
-app.use(bodyParser.urlencoded({ limit: "50mb", extended: true }));
 app.use(bodyParser.json({ limit: "50mb" }));
-app.use(multipart());
+app.use(
+  busboy({
+    highWaterMark: 2 * 1024 * 1024 // Set 2MiB buffer
+  })
+);
 app.use(cookieParser());
+app.use(express.static("public"));
+app.use(express.static("flags"));
 //init function
 
 server.listen(config.api_port, () => {
@@ -47,9 +54,10 @@ server.listen(config.api_port, () => {
 
 let apiRequest = require("./constant/apiRequest");
 let authController = require("./controller/authController");
-let userController = require("./controller/userController");
-let sessionController = require("./controller/sessionCtl");
-let gameController = require("./controller/gameController");
+let serverUiForm = require("./controller/form");
+let matchCtl = require("./controller/matchCtl");
+let flagCtl = require("./controller/flagCtl");
+
 // POST or PUT
 var putOrPostFunction = (req, res, redirectFunc) => {
   redirectFunc(req, res);
@@ -68,58 +76,6 @@ app.post(config.base_url + apiRequest.auth.login.url, (req, res) => {
 }); // #ffffff
 
 //create user
-app.post(config.base_url + apiRequest.post.createUser.url, (req, res) => {
-  console.log("[user Create route ]");
-  putOrPostFunction(req, res, userController.createUser);
-});
-
-//List suprvisor
-app.post(config.base_url + apiRequest.post.getSupervisors.url, (req, res) => {
-  console.log("[supervisor list route]");
-  global.timer = setInterval(() => {
-    putOrPostFunction(req, res, sessionController.getSupervisors);
-  }, 1000);
-});
-
-// connect session
-app.post(config.base_url + apiRequest.post.connectSession.url, (req, res) => {
-  console.log("[connect session  route]");
-
-  putOrPostFunction(req, res, sessionController.connectSession);
-});
-
-// get all contacts from list
-app.get(config.base_url + apiRequest.post.contacts.url, (req, res) => {
-  console.log("[Contacts from list]");
-
-  putOrPostFunction(req, res, userController.contactList);
-});
-
-app.post(config.base_url + apiRequest.post.getSupervisor.url, (req, res) => {
-  console.log("[getSupervisor ]");
-
-  putOrPostFunction(req, res, sessionController.getSupervisor);
-});
-
-// supervisor status calls
-
-//makeOnline suprVisor
-app.post(config.base_url + apiRequest.post.makeOnline.url, (req, res) => {
-  console.log("[Make online route]");
-  putOrPostFunction(req, res, sessionController.makeOnline);
-});
-
-//makeOffline suprVisor
-app.post(config.base_url + apiRequest.post.makeOffline.url, (req, res) => {
-  console.log("[Make offline route]");
-  putOrPostFunction(req, res, sessionController.makeOffline);
-});
-
-//makeEngaged suprVisor
-app.post(config.base_url + apiRequest.post.makeEngaged.url, (req, res) => {
-  console.log("[Make engaged route]");
-  putOrPostFunction(req, res, sessionController.makeEngaged);
-});
 
 app.get(config.base_url + apiRequest.post.payment.url, (req, res) => {
   console.log("[request for payment ]");
@@ -133,16 +89,25 @@ app.post(config.base_url + apiRequest.post.payment.callBack, (req, res) => {
   putOrPostFunction(req, res, authController.paytmResponse);
 });
 
-// game
-app.post(config.base_url + apiRequest.post.addGame.url, (req, res) => {
-  console.log("[addGame.url]");
-
-  putOrPostFunction(req, res, gameController.add);
+// add new match matchCtl
+//1.
+app.post(config.base_url + apiRequest.post.addMatch.url, (req, res) => {
+  console.log("[add match ctl]", req.body);
+  putOrPostFunction(req, res, matchCtl.add);
 });
 
-//  game list
-app.post(config.base_url + apiRequest.post.listGame.url, (req, res) => {
-  console.log("[listGame.url]");
+// ui forms
+// 1. upload flags forms
+app.get("/admin/flag/upload", (req, res) => {
+  putOrPostFunction(req, res, serverUiForm.uploadFlags);
+});
+// 2. flagController: upload
+app.post("/api/flagupload", (req, res, next) => {
+  putOrPostFunction(req, res, flagCtl.upload);
+});
 
-  putOrPostFunction(req, res, gameController.gamesList);
+//3. flagCtl : list files
+app.get("/admin/flag/list", (req, res) => {
+  console.log("[/admin/flag/list]");
+  putOrPostFunction(req, res, flagCtl.list);
 });

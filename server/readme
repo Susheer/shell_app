@@ -1,0 +1,9 @@
+start pm2 
+
+1. react 
+from root folder 
+pm2 start node_modules/react-scripts/bin/react-scripts.js --name  client -- start
+
+//////////////
+server 
+pm2 start server/server.js --name  server -- start

@@ -1,11 +1,11 @@
 var config = {
   db_host: "mongodb://localhost:27017/",
-  db_name: "Onet",
+  db_name: "shell_app",
   api_port: "4000",
-  api_Host: "http://192.168.43.189",
+  api_Host: "http://localhost",
   shard_db: false,
   base_url: "/api",
-  secretKey: "sudheerOnet",
+  secretKey: "sudheerShell_app",
   option: {
     useNewUrlParser: true
   },
@@ -13,6 +13,7 @@ var config = {
     apiKey: "46389042",
     secret: ""
   }
+
   //Log config
 };
 
