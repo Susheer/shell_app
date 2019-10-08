@@ -17,10 +17,10 @@ const ItemBody = ({
       <div className="flex">
         {/*   left flag  */}
         <div
-          className="flagWrapper flagWrapperLeft_b977f flagWrapperDesktop"
+          className="flagWrapper flagWrapperLeft flagWrapperDesktop"
           style={{ backgroundColor: lFlagColor }}
         >
-          <div className="flagLeftPosition_cac11">
+          <div className="flagLeftPosition">
             <div
               className="lazy-loader lazyLoader lazyLoaderLoaded"
               style={{ height: "64px", width: "64px" }}

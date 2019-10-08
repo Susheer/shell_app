@@ -20,14 +20,14 @@ const ItemBody = ({
           className="flagWrapper flagWrapperLeft_b977f flagWrapperDesktop"
           style={{ backgroundColor: lFlagColor }}
         >
-          <div className="flagLeftPosition_cac11">
+          <div className="flagLeftPosition">
             <div
               className="lazy-loader lazyLoader lazyLoaderLoaded"
               style={{ height: "64px", width: "64px" }}
             >
               <img
                 src={flagA}
-                className="lazyLoaderImg lazyLoaderImgFit lazyLoaderImgLoaded"
+                className="lazyLoaderImg lazyLoaderImgFit lazyLoaderImgLoaded leftFlag"
               />
             </div>
           </div>
@@ -59,7 +59,7 @@ const ItemBody = ({
             >
               <img
                 src={flagB}
-                className="lazyLoaderImg lazyLoaderImgFit lazyLoaderImgLoaded"
+                className="lazyLoaderImg lazyLoaderImgFit lazyLoaderImgLoaded rightFlag"
               />
             </div>
           </div>

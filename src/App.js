@@ -5,6 +5,7 @@ import { Home } from "./page/home";
 import Contest from "./page/contest/contest-page";
 class App extends React.Component {
   render() {
+    /*  console.log(new Date().toUTCString()); */
     return (
       <div className="App  app-container">
         <Route path="/" exact={true} render={props => <Home {...props} />} />

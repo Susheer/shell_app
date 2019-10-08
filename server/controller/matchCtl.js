@@ -96,6 +96,13 @@ const matchCTL = {
       newMatch: newMatch,
       details: "new Match created"
     });
+  },
+  list: async (req, res) => {
+    let matches = await matchModel.find({ enable: true });
+    return res.send({
+      success: true,
+      matches: matches
+    });
   }
 };
 
