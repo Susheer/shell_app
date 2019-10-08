@@ -7,59 +7,11 @@ import { Redirect } from "react-router-dom";
 import Paper from "@material-ui/core/Paper";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
+const axios = require("axios");
 class Home extends React.Component {
   state = {
     dirToContest: false,
-    matchList: [
-      {
-        matchStatus: "Strik",
-        matchStatusColor: "Red",
-        flagAColor: "red",
-        flagBColor: "green",
-        title: "IPL Series",
-        teamA: "IND",
-        teamB: "AUS",
-        flagA: { flag1 },
-        flagB: { flag2 },
-        time: "3  Hour"
-      },
-      {
-        matchStatus: "Strik",
-        matchStatusColor: "Red",
-        flagAColor: "red",
-        flagBColor: "green",
-        title: "IPL Series",
-        teamA: "PAK",
-        teamB: "SRI",
-        flagA: { flag1 },
-        flagB: { flag2 },
-        time: "10  Hour"
-      },
-      {
-        matchStatus: "Strik",
-        matchStatusColor: "Red",
-        flagAColor: "red",
-        flagBColor: "green",
-        title: "IPL Series",
-        teamA: "AFG",
-        teamB: "NEZ",
-        flagA: { flag1 },
-        flagB: { flag2 },
-        time: "3  Hour"
-      },
-      {
-        matchStatus: "Strik",
-        matchStatusColor: "Red",
-        flagAColor: "red",
-        flagBColor: "green",
-        title: "IPL Series",
-        teamA: "AFG",
-        teamB: "NEZ",
-        flagA: { flag1 },
-        flagB: { flag2 },
-        time: "3  Hour"
-      }
-    ]
+    matchList: []
   };
   matchOnPress = e => {
     let a = e.currentTarget.parentNode.getAttribute("data-key");
@@ -79,6 +31,23 @@ class Home extends React.Component {
         />
       );
     }
+  }
+
+  componentDidMount() {
+    axios
+      .get("/api/matches/list")
+      .then(response => {
+        // handle success
+        console.log("response.data.matches->", response.data.matches);
+        this.setState({ matchList: response.data.matches });
+      })
+      .catch(function(error) {
+        // handle error
+        console.log(error);
+      })
+      .finally(function() {
+        // always executed
+      });
   }
 
   render() {
@@ -135,20 +104,21 @@ class Home extends React.Component {
             <strong>Upcomming matches</strong>
           </div>
         </div>
+
         {this.state.matchList.map((v, i) => (
           <Match
             key={i}
             matchId={i}
-            matchStatus={v.matchStatus}
-            matchStatusColor={v.matchStatusColor}
-            flagAColor={v.flagAColor}
-            flagBColor={v.flagBColor}
+            matchStatus={v.status}
+            matchStatusColor={v.status_color}
+            flagAColor={v.flag_a_color}
+            flagBColor={v.flag_b_color}
             title={v.title}
-            teamA={v.teamA}
-            teamB={v.teamB}
-            flagA={flag1}
-            flagB={flag2}
-            time={v.time}
+            teamA={v.team_a}
+            teamB={v.team_b}
+            flagA={"http://localhost:4000/" + v.flag_a}
+            flagB={"http://localhost:4000/" + v.flag_b}
+            time={new Date(v.startDate).getDate().toString()}
             onPress={this.matchOnPress}
           />
         ))}

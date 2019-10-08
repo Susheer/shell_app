@@ -40,7 +40,30 @@ const flagCtl = {
   },
   list: async (req, res) => {
     let flag = await flagModel.find({}, { title: 1, _id: 1 });
-    return res.send({ files: flag });
+    res.writeHead(401, { "Content-Type": "text/html" });
+    let form = "<html>";
+
+    form += "<head><title>Availbal flags</title></head>";
+    form += "<body><div style='display:inline-flex; flex-direction:column'>";
+    let host = req.hostname;
+    host += ":4000/";
+    flag.map(item => {
+      // body start in column
+      let imgurl = host + item.title;
+      form +=
+        '<div style="display:flex; align-items: center ; background: #fff;border-radius: 2px;margin:1rem; box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);padding: 2rem;">';
+      form += `<img src=http://${imgurl}  style="height:8rem;" />`;
+      form += `<div style='display:flex; flex-direction:column'><span>${item.title}</span><p><span>${item._id}</span></div>`;
+      form += "</div>";
+      // end here
+    });
+
+    form += "</div> </body>";
+    form += "</html>";
+
+    res.write(form);
+    return res.end();
+    // return res.send({ files: flag });
   }
 };
 

@@ -42,7 +42,7 @@ const Item = ({
           }}
         >
           <div
-            class="prize-pool"
+            className="prize-pool"
             style={{ fontSize: "20px", fontWeight: "500", color: "#282828 " }}
           >
             ₹10 Lakhs
@@ -50,10 +50,10 @@ const Item = ({
           <div>
             <div style={{ display: "flex", alignItems: "center" }}>
               <div>
-                <button class="new-button smallGreenButton">
+                <button className="new-button smallGreenButton">
                   <span>
-                    <span class="rupay-icon">₹</span>
-                    <span class="currency-amount">33</span>
+                    <span className="rupay-icon">₹</span>
+                    <span className="currency-amount">33</span>
                   </span>
                 </button>
               </div>

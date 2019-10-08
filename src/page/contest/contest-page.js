@@ -23,8 +23,8 @@ class Contest extends React.Component {
           <Header />
           {/* ---------*/}
           <InfoBar
-            center={data.time}
-            left={data.teamA + " Vs " + data.teamB}
+            center={data.startDate}
+            left={data.team_a + " Vs " + data.team_b}
             icon="access_time"
           />
         </div>

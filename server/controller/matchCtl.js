@@ -24,7 +24,7 @@ const matchCTL = {
         success: false,
         details: "sportsName cannot be empty"
       });
-    } else if (!("status" in req.body) || !req.body.status) {
+    } else if ("status" in req.body && !req.body.status) {
       return res.send({
         success: false,
         details: "status cannot be empty"
@@ -48,6 +48,23 @@ const matchCTL = {
       return res.send({
         success: false,
         details: "team_b cannot be empty"
+      });
+    } else if ("status" in req.body) {
+      if (!("status_color" in req.body) || !req.body.status_color) {
+        return res.send({
+          success: false,
+          details: "status_color cannot be empty"
+        });
+      }
+    } else if (!("flag_a_color" in req.body) || !req.body.flag_a_color) {
+      return res.send({
+        success: false,
+        details: "flag_a_color cannot be empty"
+      });
+    } else if (!("flag_b_color" in req.body) || !req.body.flag_b_color) {
+      return res.send({
+        success: false,
+        details: "flag_b_color cannot be empty"
       });
     } else {
       // check if flags are in db
@@ -78,6 +95,13 @@ const matchCTL = {
       success: true,
       newMatch: newMatch,
       details: "new Match created"
+    });
+  },
+  list: async (req, res) => {
+    let matches = await matchModel.find({ enable: true });
+    return res.send({
+      success: true,
+      matches: matches
     });
   }
 };

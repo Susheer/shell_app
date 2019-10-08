@@ -96,6 +96,12 @@ app.post(config.base_url + apiRequest.post.addMatch.url, (req, res) => {
   putOrPostFunction(req, res, matchCtl.add);
 });
 
+// 2.  list match
+app.get(config.base_url + "/matches/list", (req, res) => {
+  console.log("[add match ctl]");
+  putOrPostFunction(req, res, matchCtl.list);
+});
+
 // ui forms
 // 1. upload flags forms
 app.get("/admin/flag/upload", (req, res) => {
