@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./infoBar.css";
+import Timer from "../../../reusable-components/timer";
 //timerData={"04h 00m 10s"}
 //leftContent={"TKR vs GUY"}
 //icon="access_time"
@@ -33,7 +34,9 @@ const InfoBarBody = ({ leftContent, timerData, icon }) => {
             {icon}
           </i>
           <span className="timeRemaining">
-            <div className="timer">{timerData}</div>
+            <div className="timer">
+              <Timer time={timerData} />
+            </div>
           </span>
         </div>
       </div>

@@ -1,12 +1,11 @@
 import React from "react";
 import logo from "../../dst/img/dream11_logo-3.svg";
-import flag1 from "../../dst/img/flags/BBT-CR2@2x.png";
-import flag2 from "../../dst/img/flags/BIH-CR1@2x.png";
 import Match from "../../reusable-components/iteam-cards";
 import { Redirect } from "react-router-dom";
 import Paper from "@material-ui/core/Paper";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
+import urls from "../../config/url.json";
 const axios = require("axios");
 class Home extends React.Component {
   state = {
@@ -116,9 +115,9 @@ class Home extends React.Component {
             title={v.title}
             teamA={v.team_a}
             teamB={v.team_b}
-            flagA={"http://localhost:4000/" + v.flag_a}
-            flagB={"http://localhost:4000/" + v.flag_b}
-            time={new Date(v.startDate).getDate().toString()}
+            flagA={urls.url + v.flag_a}
+            flagB={urls.url + v.flag_b}
+            time={v.startDate}
             onPress={this.matchOnPress}
           />
         ))}
