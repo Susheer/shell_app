@@ -1,5 +1,6 @@
 import React from "react";
 import Timer from "./timer";
+
 const ItemBody = ({
   leftFlagColor,
   leftContryTitle,
