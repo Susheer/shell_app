@@ -19,5 +19,5 @@ let matchesSchema = new Schema({
   updatedDate: { type: Date, default: Date.now }
 });
 
-const Matches = mongoose.model("Matches", matchesSchema);
-module.exports = Matches;
+const Match = mongoose.model("Match", matchesSchema);
+module.exports = Match;

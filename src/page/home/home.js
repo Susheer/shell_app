@@ -6,7 +6,9 @@ import Paper from "@material-ui/core/Paper";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import urls from "../../config/url.json";
+import ServerRoutes from "../../config/routes.json";
 const axios = require("axios");
+
 class Home extends React.Component {
   state = {
     dirToContest: false,
@@ -34,7 +36,7 @@ class Home extends React.Component {
 
   componentDidMount() {
     axios
-      .get("/api/matches/list")
+      .get(ServerRoutes.homePg.listMatch)
       .then(response => {
         // handle success
         console.log("response.data.matches->", response.data.matches);

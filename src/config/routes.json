@@ -1,0 +1,8 @@
+{
+  "contestPg": {
+    "listByMatch": "/api/admin/contest/list_by_match"
+  },
+  "homePg": {
+    "listMatch": "/api/matches/list"
+  }
+}

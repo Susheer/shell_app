@@ -14,6 +14,8 @@ const uiForms = {
       '<input type="file" name="flagupload" style="background-color:white; color:red; height:8 %; padding:15px; "   id="flag" class="custom-file-input"/>';
 
     form +=
+      '<input type="text" placeholder="Enter color here e.g red | rgb | rgba " name="color" style="background-color:white;  height:3 %; width:100%; padding:15px; "   id="color" class="custom-file-input"/>';
+    form +=
       '<input type="submit" value="Submit" style="background-color:#38117d; color:white; height:8%;width:60%;" class="btn btn-primary btn-block">';
     form += " </div>";
     form += "</form>";
