@@ -1,7 +1,7 @@
 import React from "react";
 import "./footer.css";
 import winners_icon from "../../dst/img/Newfolder/winners_icon.svg";
-const ItemFooter = ({}) => {
+const ItemFooter = ({ perVal }) => {
   return (
     <div className=" matchCardFooterDesktop">
       <div className="contestSpec_a3ebb">
@@ -11,7 +11,7 @@ const ItemFooter = ({}) => {
               src={winners_icon}
               style={{ height: "16px", width: " 16px", marginRight: "4px" }}
             />
-            <span>88%</span>
+            <span>{perVal}%</span>
           </div>
         </div>
         <div

@@ -13,10 +13,17 @@ const Item = ({
   title,
   matchStatus,
   matchStatusColor,
-
+  poolAmount,
+  entryFee,
+  poolSize,
   onPress,
+  occupied,
   matchId
 }) => {
+  let remain_spots = 0;
+  if (poolSize) {
+    remain_spots = (occupied / poolSize) * 100;
+  }
   let className = "card card_iteam darkTheme";
   let classess = useStyles();
   return (
@@ -45,7 +52,7 @@ const Item = ({
             className="prize-pool"
             style={{ fontSize: "20px", fontWeight: "500", color: "#282828 " }}
           >
-            ₹10 Lakhs
+            ₹ {poolAmount}
           </div>
           <div>
             <div style={{ display: "flex", alignItems: "center" }}>
@@ -53,7 +60,7 @@ const Item = ({
                 <button className="new-button smallGreenButton">
                   <span>
                     <span className="rupay-icon">₹</span>
-                    <span className="currency-amount">33</span>
+                    <span className="currency-amount">{entryFee}</span>
                   </span>
                 </button>
               </div>
@@ -74,7 +81,7 @@ const Item = ({
             <LinearProgress
               color="secondary"
               variant="determinate"
-              value={60}
+              value={remain_spots}
             />
           </div>
         </div>
@@ -96,19 +103,19 @@ const Item = ({
                 fontWeight: "500"
               }}
             >
-              39,726 spots left
+              {poolSize - occupied} spots left
             </p>
           </div>
           <div>
             <p
               style={{ color: "#969696", fontSize: "12px", fontWeight: "500" }}
             >
-              40,000 spots
+              {poolSize} spots
             </p>
           </div>
         </div>
 
-        <IFooter />
+        <IFooter perVal={remain_spots} />
       </li>
     </div>
   );

@@ -25,6 +25,13 @@ var apiRequest = {
     },
     editMatches: {
       url: "/matches/add"
+    },
+    contest: {
+      create: "/admin/contest/create",
+      edit: "/admin/contest/edit",
+      list: "/admin/contest/list",
+      listByMatch: "/admin/contest/list_by_match",
+      participate: "/contest/participate"
     }
   },
   get: {

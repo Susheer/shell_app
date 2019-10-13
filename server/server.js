@@ -53,10 +53,10 @@ server.listen(config.api_port, () => {
 //          ADD CONTROLLER
 
 let apiRequest = require("./constant/apiRequest");
-let authController = require("./controller/authController");
+let contestCtl = require("./controller/contestCtl");
+let flagCtl = require("./controller/flagCtl");
 let serverUiForm = require("./controller/form");
 let matchCtl = require("./controller/matchCtl");
-let flagCtl = require("./controller/flagCtl");
 
 // POST or PUT
 var putOrPostFunction = (req, res, redirectFunc) => {
@@ -116,4 +116,17 @@ app.post("/api/flagupload", (req, res, next) => {
 app.get("/admin/flag/list", (req, res) => {
   console.log("[/admin/flag/list]");
   putOrPostFunction(req, res, flagCtl.list);
+});
+
+// contest
+//-----------------------
+
+//1 create
+app.post(config.base_url + apiRequest.post.contest.create, (req, res) => {
+  putOrPostFunction(req, res, contestCtl.create);
+});
+
+//2 list by match
+app.post(config.base_url + apiRequest.post.contest.listByMatch, (req, res) => {
+  putOrPostFunction(req, res, contestCtl.listByMatch);
 });

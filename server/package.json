@@ -1,7 +1,7 @@
 {
-  "name": "expenseeve",
+  "name": "my-server",
   "version": "1.0.0",
-  "description": "Expenseeve Server",
+  "description": "learning pwa is easy !",
   "main": "server.js",
   "scripts": {
     "test": "mocha",
