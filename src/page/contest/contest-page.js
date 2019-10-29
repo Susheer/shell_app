@@ -124,9 +124,21 @@ class Contest extends React.Component {
 
         <ContestSortingMenu />
         {this.state.redirectToPaymentGetway ? (
-          <form action={this.txnUrl} name="f1">
-            {formElement}
-          </form>
+          <>
+            <form action={this.txnUrl} name="f1">
+              {formElement}
+            </form>
+
+            <span
+              style={{
+                textAlign: "center",
+                marginTop: "40%",
+                paddingRight: "0.5rem"
+              }}
+            >
+              Do not 'refresh' this page
+            </span>
+          </>
         ) : (
           <div style={style}>
             {contests.length ? (
@@ -155,18 +167,6 @@ class Contest extends React.Component {
                 {details}
               </span>
             )}
-            {this.state.redirectToPaymentGetway ? (
-              <span
-                style={{
-                  textAlign: "center",
-                  marginTop: "40%",
-                  paddingRight: "0.5rem"
-                }}
-              >
-                Stay on page <br />
-                Do not 'refresh' the page
-              </span>
-            ) : null}
           </div>
         )}
       </React.Fragment>

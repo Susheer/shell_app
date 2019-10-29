@@ -3,7 +3,7 @@ var config = {
   db_name: "shell_app",
   api_port: "4000",
   client_port: "3000",
-  api_Host: "http://localhost",
+  api_Host: "http://13.235.80.206",
   shard_db: false,
   base_url: "/api",
   client: {
