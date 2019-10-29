@@ -57,6 +57,8 @@ let contestCtl = require("./controller/contestCtl");
 let flagCtl = require("./controller/flagCtl");
 let serverUiForm = require("./controller/form");
 let matchCtl = require("./controller/matchCtl");
+let authController = require("./controller/authController");
+let paymentCtl = require("./controller/payment.ctl");
 
 // POST or PUT
 var putOrPostFunction = (req, res, redirectFunc) => {
@@ -130,3 +132,24 @@ app.post(config.base_url + apiRequest.post.contest.create, (req, res) => {
 app.post(config.base_url + apiRequest.post.contest.listByMatch, (req, res) => {
   putOrPostFunction(req, res, contestCtl.listByMatch);
 });
+
+// paymtm api call
+// url:/api/pay/paytm
+app.post(
+  config.base_url + apiRequest.post.pmnt_getway.pay_with_paytm,
+  (req, res) => {
+    console.log("Route: /api/pay/paytm");
+
+    putOrPostFunction(req, res, paymentCtl.paytmCreatePayment);
+  }
+);
+
+// url:/api/pay/paytm/res
+app.post(
+  config.base_url + apiRequest.post.pmnt_getway.paytm_response,
+  (req, res) => {
+    console.log("Route: /api/pay/paytm");
+
+    putOrPostFunction(req, res, paymentCtl.paytmResponse);
+  }
+);

@@ -32,6 +32,10 @@ var apiRequest = {
       list: "/admin/contest/list",
       listByMatch: "/admin/contest/list_by_match",
       participate: "/contest/participate"
+    },
+    pmnt_getway: {
+      pay_with_paytm: "/pay/paytm",
+      paytm_response: "/pay/paytm/res"
     }
   },
   get: {

@@ -1,6 +1,7 @@
 {
   "contestPg": {
-    "listByMatch": "/api/admin/contest/list_by_match"
+    "listByMatch": "/api/admin/contest/list_by_match",
+    "paymentReq": "/api/pay/paytm"
   },
   "homePg": {
     "listMatch": "/api/matches/list"
