@@ -92,10 +92,12 @@ class Contest extends React.Component {
     if (redirectToPaymentGetway) {
       console.log("Render:Redirecting ...");
       for (let x in this.params) {
-        formElement.push(<input type="text" name={x} value={this.params[x]} />);
+        formElement.push(
+          <input type="hidden" name={x} value={this.params[x]} />
+        );
       }
       formElement.push(
-        <input type="text" name="CHECKSUMHASH" value={this.checksum} />
+        <input type="hidden" name="CHECKSUMHASH" value={this.checksum} />
       );
     }
     let style = contests.length
@@ -153,6 +155,18 @@ class Contest extends React.Component {
                 {details}
               </span>
             )}
+            {this.state.redirectToPaymentGetway ? (
+              <span
+                style={{
+                  textAlign: "center",
+                  marginTop: "40%",
+                  paddingRight: "0.5rem"
+                }}
+              >
+                Stay on page <br />
+                Do not 'refresh' the page
+              </span>
+            ) : null}
           </div>
         )}
       </React.Fragment>
