@@ -4,6 +4,7 @@ import { Route } from "react-router-dom";
 import { Home } from "./page/home";
 import Contest from "./page/contest/contest-page";
 import PSuccess from "./page/payment/success";
+import Login from "./page/login";
 class App extends React.Component {
   render() {
     /*  console.log(new Date().toUTCString()); */
@@ -49,6 +50,7 @@ class App extends React.Component {
             />
           )}
         />
+        <Route path="/login" exact={true} render={props => <Login />} />
       </div>
     );
   }

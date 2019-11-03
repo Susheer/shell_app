@@ -5,5 +5,11 @@
   },
   "homePg": {
     "listMatch": "/api/matches/list"
+  },
+  "login": {
+    "baseUrl": "/api/login/",
+    "google": "/api/login/google",
+    "facebook": "/api/login/facebook",
+    "twitter": "/api/login/twitter"
   }
 }

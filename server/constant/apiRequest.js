@@ -2,6 +2,9 @@ var apiRequest = {
   auth: {
     login: {
       url: "/user/login",
+      google: "/login/google",
+      facebook: "/login/facebook",
+      twitter: "/login/twitter",
       vFlag: 0,
       mandatory: []
     },

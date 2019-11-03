@@ -10,11 +10,13 @@ var express = require("express"),
   moment = require("moment"),
   app = express(),
   config = require("./config");
+let auth = require("./services/authServices");
 
 let path = require("path");
 const busboy = require("connect-busboy");
 const uploadPath = path.join(__dirname, "/flags");
 const server = http.createServer(app);
+global.auth = auth;
 global.qs = qs;
 global.app = app;
 global.https = https;
@@ -77,6 +79,23 @@ app.post(config.base_url + apiRequest.auth.login.url, (req, res) => {
   putOrPostFunction(req, res, authController.login);
 }); // #ffffff
 
+//google login
+app.post(config.base_url + apiRequest.auth.login.google, (req, res) => {
+  console.log("[/api/login/google]");
+  putOrPostFunction(req, res, authController.loginWithGoogle);
+});
+//facebook login
+app.post(config.base_url + apiRequest.auth.login.facebook, (req, res) => {
+  console.log("[/api/login/facebook]");
+  putOrPostFunction(req, res, authController.loginWithFacebook);
+});
+
+//twitter login
+app.post(config.base_url + apiRequest.auth.login.twitter, (req, res) => {
+  console.log("[/api/login/twitter]");
+  putOrPostFunction(req, res, authController.loginWithTwitter);
+});
+
 //create user
 
 app.get(config.base_url + apiRequest.post.payment.url, (req, res) => {
@@ -87,7 +106,6 @@ app.get(config.base_url + apiRequest.post.payment.url, (req, res) => {
 
 app.post(config.base_url + apiRequest.post.payment.callBack, (req, res) => {
   console.log("[Call back came onpost]");
-
   putOrPostFunction(req, res, authController.paytmResponse);
 });
 
@@ -137,7 +155,8 @@ app.post(config.base_url + apiRequest.post.contest.listByMatch, (req, res) => {
 // url:/api/pay/paytm
 app.post(
   config.base_url + apiRequest.post.pmnt_getway.pay_with_paytm,
-  (req, res) => {
+  checkToken,
+  (req, res, next) => {
     console.log("Route: /api/pay/paytm");
 
     putOrPostFunction(req, res, paymentCtl.paytmCreatePayment);
@@ -153,3 +172,21 @@ app.post(
     putOrPostFunction(req, res, paymentCtl.paytmResponse);
   }
 );
+
+function checkToken(req, res, next) {
+  //This is just an example, please send token via header
+  auth.getUserFromToken(req).then(val => {
+    if (!val) {
+      console.log("checkToken: if block", val);
+      res.status(401);
+      return res.send({
+        success: false,
+
+        txnUrl: "https://securegw-stage.paytm.in/theia/processTransaction"
+      });
+    } else {
+      console.log("checkToken: else block", val);
+      next();
+    }
+  });
+}

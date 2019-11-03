@@ -39,7 +39,7 @@ const authServices = {
       try {
         user = await jwt.decode(token, { complete: true });
         payload = user.payload;
-        console.log("[AuthService]Token decoded");
+        console.log("[AuthService]Token decoded payload", payload);
       } catch (err) {
         return null;
       }

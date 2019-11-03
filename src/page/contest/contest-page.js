@@ -69,8 +69,20 @@ class Contest extends React.Component {
         }
       })
       .catch(err => {
-        console.log("error payment req", err);
+        console.log("error payment req", err.response);
+        let statusCode = err.response.status;
+        this.handleCatch(statusCode);
       });
+  };
+
+  handleCatch = code => {
+    switch (code) {
+      case 401:
+        alert("login again" + code);
+        break;
+      default:
+        alert("status code" + code);
+    }
   };
 
   onContestPress = e => {
@@ -128,16 +140,17 @@ class Contest extends React.Component {
             <form action={this.txnUrl} name="f1">
               {formElement}
             </form>
-
-            <span
-              style={{
-                textAlign: "center",
-                marginTop: "40%",
-                paddingRight: "0.5rem"
-              }}
-            >
-              Do not 'refresh' this page
-            </span>
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              <span
+                style={{
+                  textAlign: "center",
+                  marginTop: "40%",
+                  paddingRight: "0.5rem"
+                }}
+              >
+                Do not 'refresh' this page
+              </span>
+            </div>
           </>
         ) : (
           <div style={style}>

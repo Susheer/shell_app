@@ -1,0 +1,51 @@
+package.jso
+ "proxy": "http://localhost:4000" to  "proxy": "http://13.235.80.206:4000"
+
+ 2. 
+
+ config -> url.json
+
+  {
+  "url": "http://localhost:4000/" 
+}
+
+to 
+
+{
+  "url": "http://13.235.80.206:4000/"
+}
+
+
+
+
+3. change server config file 
+ ex:--  for dev
+  client: {
+    ptmSuccess_url: "http://localhost:3000/payment_success",
+    ptmFailed_url: "http://localhost:3000/PaymentFailed",
+    ptm_vrfn_failed_url: "http://localhost:3000/payment_verification_failed",
+    ptm_server_problam: "http://localhost:3000/server_problem"
+  },
+  client: {
+    ptmSuccess_url: "http://13.235.80.206:3000/payment_success",
+    ptmFailed_url: "http://13.235.80.206:3000/PaymentFailed",
+    ptm_vrfn_failed_url:
+      "http://13.235.80.206:3000/payment_verification_failed",
+    ptm_server_problam: "http://13.235.80.206:3000/server_problem"
+  },
+
+
+  for prod
+  
+
+
+
+4. server config -> client_port  default : 3000
+
+
+5. src-> config-> url.json  chnage localhost to ip 13.235.80.206
+
+6. server -> config->  set api_Host   form   api_Host: "http://localhost",  to api_Host: "http://13.235.80.206",
+
+7. change fb end point and redirect from console
+8. google redirect 

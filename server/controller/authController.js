@@ -1,6 +1,6 @@
 const userModel = require("../model/User");
+const userCtl = require("./userController");
 const JwtService = require("../services/authServices");
-
 const checksum_lib = require("./checksum.js");
 const https = require("https");
 
@@ -70,6 +70,50 @@ const authController = {
         details: "Invalid user id or password."
       });
     }
+  },
+
+  loginWithGoogle: async function(req, res) {
+    const {
+      name,
+      familyName,
+      email,
+      givenName,
+      googleId,
+      imageUrl
+    } = req.body.profileObj;
+    console.log("Action:loginWithGoogle");
+
+    let user = await userModel.findOne({ socialId: "G" + googleId });
+    if (user) {
+      console.log("googleId exists", googleId);
+      res.cookie(
+        "token",
+        JwtService.issue({ data: { id: user.id, sid: googleId } }),
+        {
+          httpOnly: true
+        }
+      );
+      return res.send({
+        success: true,
+        userData: {
+          name: name,
+          givenName: givenName,
+          email: email,
+          imageUrl: imageUrl
+        }
+      });
+    } else {
+      console.log(" new googleId", googleId);
+      userCtl.googleUser(req, res);
+    }
+  },
+  loginWithFacebook: async function(req, res) {
+    console.log("Action:loginWithFacebook");
+    res.send({ success: true, type: "facebook" });
+  },
+  loginWithTwitter: async function(req, res) {
+    console.log("Action:loginWithTwitter");
+    res.send({ success: true, type: "twitter" });
   },
   logout: async function(req, res) {
     console.log("get token and remove from  response ...");
