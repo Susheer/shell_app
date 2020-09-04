@@ -1,5 +1,5 @@
 import React from "react";
-const ItemFooter = ({}) => {
+const ItemFooter = () => {
   return <div className="matchCardFooter matchCardFooterDesktop"></div>;
 };
 

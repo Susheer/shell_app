@@ -8,6 +8,7 @@ const ItemFooter = ({ perVal }) => {
         <div className="iconLabelGroup_f55e1">
           <div className="iconLabelWrapper_43690">
             <img
+              alt="Winners"
               src={winners_icon}
               style={{ height: "16px", width: " 16px", marginRight: "4px" }}
             />

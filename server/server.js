@@ -26,7 +26,7 @@ global.path = path;
 global.db = mongoose.connect(
   config.db_host + config.db_name,
   config.option,
-  err => {
+  (err) => {
     if (err) console.log("database", err);
     console.log("Database connected");
   }
@@ -37,7 +37,7 @@ global.mongoose = mongoose;
 app.use(bodyParser.json({ limit: "50mb" }));
 app.use(
   busboy({
-    highWaterMark: 2 * 1024 * 1024 // Set 2MiB buffer
+    highWaterMark: 2 * 1024 * 1024, // Set 2MiB buffer
   })
 );
 app.use(cookieParser());

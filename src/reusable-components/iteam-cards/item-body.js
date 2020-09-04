@@ -8,7 +8,7 @@ const ItemBody = ({
   rightContryTitle,
   flagA,
   flagB,
-  time
+  time,
 }) => {
   let lFlagColor = leftFlagColor ? leftFlagColor : "rgb(89, 191, 148)";
   let rFlagColor = rightFlagColor ? rightFlagColor : "rgb(215, 110, 127)";
@@ -27,6 +27,7 @@ const ItemBody = ({
               style={{ height: "64px", width: "64px" }}
             >
               <img
+                alt="flag-a"
                 src={flagA}
                 className="lazyLoaderImg lazyLoaderImgFit lazyLoaderImgLoaded leftFlag"
               />
@@ -59,6 +60,7 @@ const ItemBody = ({
               style={{ height: "64px", width: "64px" }}
             >
               <img
+                alt="flag-b"
                 src={flagB}
                 className="lazyLoaderImg lazyLoaderImgFit lazyLoaderImgLoaded rightFlag"
               />

@@ -14,14 +14,14 @@ class Contest extends React.Component {
     contests: [],
 
     details: "loading...",
-    redirectToPaymentGetway: false
+    redirectToPaymentGetway: false,
   };
 
   componentDidMount() {
     let data = this.props.location.state;
     axios
       .post(ServerRoutes.contestPg.listByMatch, { match: data._id })
-      .then(response => {
+      .then((response) => {
         if (response.data) {
           if (response.data.success) {
             console.log("ContestPg server res-", response.data);
@@ -36,20 +36,21 @@ class Contest extends React.Component {
           }
         }
       })
-      .catch(err => {
+      .catch((err) => {
         console.log("ContestPg server error-", err);
       });
   }
 
-  serverCall = data => {
-    console.log("data", data);
+  serverCall = (data) => {
+    console.log("serverCall-> data", data);
+    console.log("Pinging To Url", ServerRoutes.contestPg.paymentReq);
     axios
       .post(ServerRoutes.contestPg.paymentReq, {
         userId: "sudheergupta@gmail.com",
         itemId: "item003",
-        entryFee: data.entryFee
+        entryFee: data.entryFee,
       })
-      .then(response => {
+      .then((response) => {
         console.log("Payment getway req", response);
         if (response.data.success) {
           this.params = response.data.param;
@@ -68,12 +69,12 @@ class Contest extends React.Component {
           console.log("response.data.success", response.data.success);
         }
       })
-      .catch(err => {
+      .catch((err) => {
         console.log("error payment req", err);
       });
   };
 
-  onContestPress = e => {
+  onContestPress = (e) => {
     let a = e.currentTarget.parentNode.getAttribute("data-key");
     console.log("selected contest", this.state.contests[a]);
     this.selectedContest = { ...this.state.contests[a] };
@@ -81,7 +82,6 @@ class Contest extends React.Component {
   };
 
   render() {
-    let form_fields = null;
     let formElement = [];
     let data = {};
     if (this.props.location.state) {
@@ -107,7 +107,7 @@ class Contest extends React.Component {
 
           justifyContent: "center",
           flexDirection: "column",
-          alignItems: "center"
+          alignItems: "center",
         };
     return (
       <React.Fragment>
@@ -133,7 +133,7 @@ class Contest extends React.Component {
               style={{
                 textAlign: "center",
                 marginTop: "40%",
-                paddingRight: "0.5rem"
+                paddingRight: "0.5rem",
               }}
             >
               Do not 'refresh' this page
@@ -160,7 +160,7 @@ class Contest extends React.Component {
                 style={{
                   textAlign: "center",
                   marginTop: "40%",
-                  paddingRight: "0.5rem"
+                  paddingRight: "0.5rem",
                 }}
               >
                 {" "}

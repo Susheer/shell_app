@@ -9,30 +9,30 @@ class App extends React.Component {
     /*  console.log(new Date().toUTCString()); */
     return (
       <div className="App  app-container">
-        <Route path="/" exact={true} render={props => <Home {...props} />} />
+        <Route path="/" exact={true} render={(props) => <Home {...props} />} />
         <Route
           path="/contest"
           exact={true}
-          render={props => <Contest {...props} />}
+          render={(props) => <Contest {...props} />}
         />
         <Route
           path="/payment_success"
           exact={true}
-          render={props => (
+          render={(props) => (
             <PSuccess style={{ color: "black" }} message={"Payment Success"} />
           )}
         />
         <Route
           path="/PaymentFailed"
           exact={true}
-          render={props => (
+          render={(props) => (
             <PSuccess style={{ color: "red" }} message={"Payment Failed"} />
           )}
         />
         <Route
           path="/payment_verification_failed"
           exact={true}
-          render={props => (
+          render={(props) => (
             <PSuccess
               style={{ color: "red" }}
               message={" payement verification failed"}
@@ -42,7 +42,7 @@ class App extends React.Component {
         <Route
           path="/server_problem"
           exact={true}
-          render={props => (
+          render={(props) => (
             <PSuccess
               style={{ color: "black" }}
               message={"Opps somthing went wrong!!"}

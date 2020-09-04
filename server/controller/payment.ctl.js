@@ -2,20 +2,21 @@
 const JwtService = require("../services/authServices"); */
 const querystring = require("querystring");
 const checksum_lib = require("./checksum.js");
+const { setMaxListeners } = require("process");
 const clientConfig = global.config.client;
 var PaytmConfig = {
   mid: "XhCMDF15387007592421",
   key: "2PfFyqbbWpLTA2PO",
-  website: "WEBSTAGING"
+  website: "WEBSTAGING",
 };
 const paymentController = {
-  paytmCreatePayment: async function(req, res) {
+  paytmCreatePayment: async function (req, res) {
     // orderId, amount, email, mobileNumber,
 
     let reqBody = {
       userId: null,
       itemId: null,
-      amount: null
+      amount: null,
     };
 
     reqBody.userId = req.body.userId;
@@ -42,31 +43,32 @@ const paymentController = {
     /*  params["MOBILE_NO"] = "7777777777"; */
 
     // generate checksum
-    checksum_lib.genchecksum(params, PaytmConfig.key, function(err, checksum) {
+
+    checksum_lib.genchecksum(params, PaytmConfig.key, function (err, checksum) {
       if (err) {
         return res.send({
           success: false,
           param: params,
           checksum: checksum,
-          txnUrl: "https://securegw-stage.paytm.in/theia/processTransaction"
+          txnUrl: "https://securegw-stage.paytm.in/theia/processTransaction",
         });
       }
       return res.send({
         success: true,
         param: params,
         checksum: checksum,
-        txnUrl: "https://securegw-stage.paytm.in/theia/processTransaction"
+        txnUrl: "https://securegw-stage.paytm.in/theia/processTransaction",
       });
     });
   },
-  paytmResponse: async function(req, res) {
+  paytmResponse: async function (req, res) {
     console.log("Paytm Callback ctl");
     let fullBody = "";
-    req.on("data", function(chunk) {
+    req.on("data", function (chunk) {
       console.log("Req.on");
       fullBody += chunk.toString();
     });
-    req.on("end", function() {
+    req.on("end", function () {
       console.log("Req.end");
       let decodedBody = querystring.parse(fullBody);
       // get received checksum
@@ -99,13 +101,13 @@ const paymentController = {
         res.redirect(clientConfig.ptm_vrfn_failed_url);
       }
     });
-    req.on("error", function(e) {
+    req.on("error", function (e) {
       console.log("Somthing went wrong !!! " + e.message);
       res.redirect(clientConfig.ptm_server_problam);
     });
 
     // end method here
-  }
+  },
 };
 
 module.exports = paymentController;

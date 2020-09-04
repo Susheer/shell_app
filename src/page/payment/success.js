@@ -1,10 +1,7 @@
 import React from "react";
 import "../contest/contest.css";
-import ServerRoutes from "../../config/routes.json";
 
 /* import MatchHeader from "./match-header"; */
-
-import { InfoBar } from "../contest/header-component";
 import Header from "../contest/header";
 
 class PSuccess extends React.Component {
@@ -18,7 +15,7 @@ class PSuccess extends React.Component {
           style={{
             display: "flex",
             justifyContent: "center",
-            marginTop: "30%"
+            marginTop: "30%",
           }}
         >
           {" "}

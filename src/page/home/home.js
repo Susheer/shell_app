@@ -12,9 +12,9 @@ const axios = require("axios");
 class Home extends React.Component {
   state = {
     dirToContest: false,
-    matchList: []
+    matchList: [],
   };
-  matchOnPress = e => {
+  matchOnPress = (e) => {
     let a = e.currentTarget.parentNode.getAttribute("data-key");
     console.log("ok", this.state.matchList[a]);
     this.selectedMatch = { ...this.state.matchList[a] };
@@ -27,7 +27,7 @@ class Home extends React.Component {
         <Redirect
           to={{
             pathname: "/contest",
-            state: this.selectedMatch
+            state: this.selectedMatch,
           }}
         />
       );
@@ -37,16 +37,16 @@ class Home extends React.Component {
   componentDidMount() {
     axios
       .get(ServerRoutes.homePg.listMatch)
-      .then(response => {
+      .then((response) => {
         // handle success
         console.log("response.data.matches->", response.data.matches);
         this.setState({ matchList: response.data.matches });
       })
-      .catch(function(error) {
+      .catch(function (error) {
         // handle error
         console.log(error);
       })
-      .finally(function() {
+      .finally(function () {
         // always executed
       });
   }
@@ -61,27 +61,23 @@ class Home extends React.Component {
               <div className="headerElement_af700"></div>
               <div>
                 <div className="headerElement_af700 left_a1d14"></div>
-                <img src={logo} className="logo_32840" />
+                <img src={logo} alt="logo-data" className="logo_32840" />
               </div>
               <div className="headerElement_af700 right_c98d9">
                 <div className="js--home-login-btn">
-                  <a className="whiteBorderedButton_6b901" href="#">
-                    Login
-                  </a>
+                  <span className="whiteBorderedButton_6b901">Login</span>
                 </div>
               </div>
             </div>
             <div
               style={{
                 background: "#fff",
-                width: "inherit"
+                width: "inherit",
               }}
             >
               <Paper square>
                 <Tabs
                   value={0}
-                  indicatorColor="primary"
-                  textColor="primary"
                   indicatorColor="primary"
                   textColor="primary"
                   variant="scrollable"
