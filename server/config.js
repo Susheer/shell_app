@@ -17,7 +17,7 @@ var config = {
     useNewUrlParser: true,
   },
   openTok: {
-    apiKey: "46389042",
+    apiKey: "",
     secret: "",
   },
 
