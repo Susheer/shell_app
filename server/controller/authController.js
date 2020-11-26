@@ -5,8 +5,8 @@ const checksum_lib = require("./checksum.js");
 const https = require("https");
 
 var PaytmConfig = {
-  mid: "XhCMDF15387007592421",
-  key: "2PfFyqbbWpLTA2PO",
+  mid: "",
+  key: "",
   website: "WEBSTAGING"
 };
 const authController = {
