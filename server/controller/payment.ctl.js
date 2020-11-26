@@ -5,8 +5,8 @@ const checksum_lib = require("./checksum.js");
 const { setMaxListeners } = require("process");
 const clientConfig = global.config.client;
 var PaytmConfig = {
-  mid: "XhCMDF15387007592421",
-  key: "2PfFyqbbWpLTA2PO",
+  mid: "",
+  key: "",
   website: "WEBSTAGING",
 };
 const paymentController = {
